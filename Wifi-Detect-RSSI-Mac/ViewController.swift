@@ -15,6 +15,8 @@ class ViewController: NSViewController {
     let label5 = WILabel(frame: NSRect.zero)
     let tableView5 = NSTableView()
     let copyrightLabel = WILabel(frame: NSRect.zero)
+    let reloadLabel = WILabel(frame: NSRect.zero)
+    let reloadBtn = NSButton()
     let interface = CWWiFiClient.shared().interface()
     var wifiInfo: [WifiData] = [] {
         willSet {
@@ -57,6 +59,8 @@ private extension ViewController {
         view.addSubview(label5)
         view.addSubview(tableView5)
         view.addSubview(copyrightLabel)
+        view.addSubview(reloadLabel)
+        view.addSubview(reloadBtn)
 
         // translate false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -65,6 +69,8 @@ private extension ViewController {
         label5.translatesAutoresizingMaskIntoConstraints = false
         tableView5.translatesAutoresizingMaskIntoConstraints = false
         copyrightLabel.translatesAutoresizingMaskIntoConstraints = false
+        reloadLabel.translatesAutoresizingMaskIntoConstraints = false
+        reloadBtn.translatesAutoresizingMaskIntoConstraints = false
 
         // auto layout constrain
         NSLayoutConstraint.activate([
@@ -94,6 +100,15 @@ private extension ViewController {
             .init(item: copyrightLabel, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: -8),
             .init(item: copyrightLabel, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
         ])
+        NSLayoutConstraint.activate([
+            .init(item: reloadLabel, attribute: .trailing, relatedBy: .equal, toItem: reloadBtn, attribute: .leading, multiplier: 1, constant: -8),
+            .init(item: reloadLabel, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 20),
+        ])
+        NSLayoutConstraint.activate([
+            .init(item: reloadBtn, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -20),
+            .init(item: reloadBtn, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 20),
+            .init(item: reloadBtn, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 44)
+        ])
 
         // others
         titleLabel.stringValue = "Wifi-Detece-RSSI-MAC"
@@ -110,6 +125,11 @@ private extension ViewController {
         copyrightLabel.font = NSFont.systemFont(ofSize: 12, weight: .semibold)
         copyrightLabel.textColor = NSColor.lightGray
         copyrightLabel.alignment = .center
+        reloadLabel.stringValue = "Reloading..."
+        reloadBtn.image = NSImage.init(systemSymbolName: "arrow.counterclockwise", accessibilityDescription: nil)
+        reloadBtn.setButtonType(.toggle)
+        reloadBtn.bezelStyle = .roundRect
+        reloadBtn.action = #selector(scanWifi)
     }
 
     func setDelegate() {
@@ -152,8 +172,9 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
 }
 
 private extension ViewController {
-    func scanWifi() {
+    @objc func scanWifi() {
         guard let network = try? interface?.scanForNetworks(withSSID: nil) else { return }
+        view.addSubview(reloadLabel)
         wifiInfo = network.compactMap {
             WifiData.fromNetwork(network: $0)
         }
@@ -162,5 +183,6 @@ private extension ViewController {
         }
         tableView2_4.reloadData()
         tableView5.reloadData()
+        reloadLabel.removeFromSuperview()
     }
 }
