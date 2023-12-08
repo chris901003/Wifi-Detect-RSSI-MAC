@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         window = NSWindow(
-            contentRect: NSRect(x: 100, y: 500, width: 480, height: 270),
+            contentRect: NSRect(x: 0, y: 0, width: 480, height: 270),
             styleMask: [.miniaturizable, .closable, .resizable, .titled],
             backing: .buffered,
             defer: false
