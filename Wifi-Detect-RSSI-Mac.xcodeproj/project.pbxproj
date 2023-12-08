@@ -20,6 +20,7 @@
 		056428A32B2208A2001FD4DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		056428A62B2208A2001FD4DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		056428A82B2208A2001FD4DA /* Wifi_Detect_RSSI_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wifi_Detect_RSSI_Mac.entitlements; sourceTree = "<group>"; };
+		05D8F2BA2B221077006909F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +53,7 @@
 		0564289E2B22089F001FD4DA /* Wifi-Detect-RSSI-Mac */ = {
 			isa = PBXGroup;
 			children = (
+				05D8F2BA2B221077006909F8 /* Info.plist */,
 				0564289F2B22089F001FD4DA /* AppDelegate.swift */,
 				056428A12B22089F001FD4DA /* ViewController.swift */,
 				056428A32B2208A2001FD4DA /* Assets.xcassets */,
@@ -275,6 +277,7 @@
 				DEVELOPMENT_TEAM = L4D6WNQFVL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Wifi-Detect-RSSI-Mac/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -302,6 +305,7 @@
 				DEVELOPMENT_TEAM = L4D6WNQFVL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Wifi-Detect-RSSI-Mac/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
