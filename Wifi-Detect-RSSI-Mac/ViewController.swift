@@ -6,17 +6,21 @@
 //
 
 import Cocoa
+import CoreWLAN
 
 class ViewController: NSViewController {
     let titleLabel = WILabel(frame: NSRect.zero)
     let copyrightLabel = WILabel(frame: NSRect.zero)
     let tableView = NSTableView()
+    let interface = CWWiFiClient.shared().interface()
+    var wifiInfo: [WifiData] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutView()
         setDelegate()
         tableViewColumn()
+        scanWifi()
     }
 
     override func loadView() {
@@ -79,14 +83,9 @@ private extension ViewController {
 
     func tableViewColumn() {
         let nameColumn = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "Wifi"))
-        nameColumn.headerCell.title = "Wifi"
-        nameColumn.headerCell.stringValue = "Wifi2"
-        nameColumn.headerCell.textColor = NSColor.black
-        nameColumn.headerCell.isHighlighted = true
-        nameColumn.width = 100
+        nameColumn.width = 200
         let rssiColumn = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "RSSI"))
-        rssiColumn.headerCell.title = "RSSI"
-        rssiColumn.width = 200
+        rssiColumn.width = 100
         tableView.addTableColumn(nameColumn)
         tableView.addTableColumn(rssiColumn)
     }
@@ -95,14 +94,32 @@ private extension ViewController {
 // MARK: - Table view delegate
 extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 10
+        return wifiInfo.count
     }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return "aaaa"
+        if tableColumn?.identifier.rawValue == "Wifi" {
+            return wifiInfo[row].name
+        } else if tableColumn?.identifier.rawValue == "RSSI" {
+            return "\(wifiInfo[row].rssi) dBm"
+        }
+        return "N/A"
     }
 
     func selectionShouldChange(in tableView: NSTableView) -> Bool {
         false
+    }
+}
+
+private extension ViewController {
+    func scanWifi() {
+        guard let network = try? interface?.scanForNetworks(withSSID: nil) else { return }
+        wifiInfo = network.compactMap {
+            WifiData.fromNetwork(network: $0)
+        }
+        wifiInfo = wifiInfo.sorted {
+            $0.rssi > $1.rssi
+        }
+        tableView.reloadData()
     }
 }
