@@ -8,11 +8,16 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
 
-        // Do any additional setup after loading the view.
+    override func loadView() {
+       let rect = NSRect(x: 0, y: 0, width: 480, height: 240)
+       view = NSView(frame: rect)
+       view.wantsLayer = true
+       view.layer?.backgroundColor = NSColor.white.cgColor
     }
 
     override var representedObject: Any? {
@@ -20,7 +25,5 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
 }
 

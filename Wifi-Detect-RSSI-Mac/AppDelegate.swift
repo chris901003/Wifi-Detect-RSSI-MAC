@@ -6,15 +6,23 @@
 //
 
 import Cocoa
+import AppKit
 
-@main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    
-
+    private var window: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        window = NSWindow(
+            contentRect: NSRect(x: 100, y: 500, width: 480, height: 270),
+            styleMask: [.miniaturizable, .closable, .resizable, .titled],
+            backing: .buffered,
+            defer: false
+        )
+        window.center()
+        window.title = "Wifi-Detect-RSSI-MAC"
+        window.contentViewController = ViewController()
+        window.makeKeyAndOrderFront(nil)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

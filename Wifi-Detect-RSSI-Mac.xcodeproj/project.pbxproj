@@ -10,7 +10,7 @@
 		056428A02B22089F001FD4DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564289F2B22089F001FD4DA /* AppDelegate.swift */; };
 		056428A22B22089F001FD4DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056428A12B22089F001FD4DA /* ViewController.swift */; };
 		056428A42B2208A2001FD4DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056428A32B2208A2001FD4DA /* Assets.xcassets */; };
-		056428A72B2208A2001FD4DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056428A52B2208A2001FD4DA /* Main.storyboard */; };
+		05D8F2BC2B233B79006909F8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D8F2BB2B233B79006909F8 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,9 +18,9 @@
 		0564289F2B22089F001FD4DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		056428A12B22089F001FD4DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		056428A32B2208A2001FD4DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		056428A62B2208A2001FD4DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		056428A82B2208A2001FD4DA /* Wifi_Detect_RSSI_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wifi_Detect_RSSI_Mac.entitlements; sourceTree = "<group>"; };
 		05D8F2BA2B221077006909F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		05D8F2BB2B233B79006909F8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +54,10 @@
 			isa = PBXGroup;
 			children = (
 				05D8F2BA2B221077006909F8 /* Info.plist */,
+				05D8F2BB2B233B79006909F8 /* main.swift */,
 				0564289F2B22089F001FD4DA /* AppDelegate.swift */,
 				056428A12B22089F001FD4DA /* ViewController.swift */,
 				056428A32B2208A2001FD4DA /* Assets.xcassets */,
-				056428A52B2208A2001FD4DA /* Main.storyboard */,
 				056428A82B2208A2001FD4DA /* Wifi_Detect_RSSI_Mac.entitlements */,
 			);
 			path = "Wifi-Detect-RSSI-Mac";
@@ -122,7 +122,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				056428A42B2208A2001FD4DA /* Assets.xcassets in Resources */,
-				056428A72B2208A2001FD4DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,21 +134,11 @@
 			files = (
 				056428A22B22089F001FD4DA /* ViewController.swift in Sources */,
 				056428A02B22089F001FD4DA /* AppDelegate.swift in Sources */,
+				05D8F2BC2B233B79006909F8 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		056428A52B2208A2001FD4DA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				056428A62B2208A2001FD4DA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		056428A92B2208A2001FD4DA /* Debug */ = {
@@ -279,7 +268,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Wifi-Detect-RSSI-Mac/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -307,7 +295,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Wifi-Detect-RSSI-Mac/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
