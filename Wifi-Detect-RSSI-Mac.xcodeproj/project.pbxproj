@@ -12,6 +12,7 @@
 		056428A42B2208A2001FD4DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056428A32B2208A2001FD4DA /* Assets.xcassets */; };
 		05D8F2BC2B233B79006909F8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D8F2BB2B233B79006909F8 /* main.swift */; };
 		05D8F2BF2B235361006909F8 /* WILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D8F2BE2B235361006909F8 /* WILabel.swift */; };
+		05D8F2C22B23671F006909F8 /* WifiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D8F2C12B23671F006909F8 /* WifiData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		05D8F2BA2B221077006909F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		05D8F2BB2B233B79006909F8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		05D8F2BE2B235361006909F8 /* WILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WILabel.swift; sourceTree = "<group>"; };
+		05D8F2C12B23671F006909F8 /* WifiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				05D8F2BA2B221077006909F8 /* Info.plist */,
 				05D8F2BD2B235352006909F8 /* Common */,
+				05D8F2C02B236713006909F8 /* Data */,
 				05D8F2BB2B233B79006909F8 /* main.swift */,
 				0564289F2B22089F001FD4DA /* AppDelegate.swift */,
 				056428A12B22089F001FD4DA /* ViewController.swift */,
@@ -72,6 +75,14 @@
 				05D8F2BE2B235361006909F8 /* WILabel.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		05D8F2C02B236713006909F8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				05D8F2C12B23671F006909F8 /* WifiData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D8F2C22B23671F006909F8 /* WifiData.swift in Sources */,
 				05D8F2BF2B235361006909F8 /* WILabel.swift in Sources */,
 				056428A22B22089F001FD4DA /* ViewController.swift in Sources */,
 				056428A02B22089F001FD4DA /* AppDelegate.swift in Sources */,
